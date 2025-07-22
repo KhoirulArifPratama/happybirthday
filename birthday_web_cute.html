@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 50px;
+      text-shadow: 2px 2px 4px #ff69b4;
+    }
+    p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+    .balloon {
+      width: 80px;
+      height: 100px;
+      background: #ff69b4;
+      border-radius: 50% 50% 45% 45%;
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+    }
+    .balloon:before {
+      content: '';
+      width: 2px;
+      height: 40px;
+      background: #fff;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-50px); }
+      100% { transform: translateY(0); }
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+    }
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      top: -10px;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Selamat Ulang Tahun! 🎂</h1>
+  <p>Semoga harimu penuh dengan tawa, kebahagiaan, dan kejutan lucu! 🎉</p>
+  <a href="#" class="btn">Terima Kasih</a>
+  <div class="balloon" style="left: 10%; background: #ffcccb;"></div>
+  <div class="balloon" style="left: 30%; background: #add8e6; animation-delay: 1s;"></div>
+  <div class="balloon" style="left: 50%; background: #90ee90; animation-delay: 2s;"></div>
+  <div class="balloon" style="left: 70%; background: #ffb6c1; animation-delay: 3s;"></div>
+  <div class="balloon" style="left: 90%; background: #ffa07a; animation-delay: 4s;"></div>
+  <script>
+    function createConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+    createConfetti();
+  </script>
+</body>
+</html>
